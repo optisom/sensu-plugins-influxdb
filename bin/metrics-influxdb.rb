@@ -78,7 +78,6 @@ class SensuToInfluxDB < Sensu::Handler
     database = opts[:database]
 
     influxdb_data = InfluxDB::Client.new database, opts
-    influxdb_data.create_database(database) # Ensure the database exists
 
     data = if opts[:status] == false || opts[:status].nil?
              parse_output
